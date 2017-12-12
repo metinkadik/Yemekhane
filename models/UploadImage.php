@@ -1,12 +1,12 @@
 <?php
 
-namespace kouosl\sample\models;
+namespace kouosl\yemekhane\models;
 
-use kouosl\sample\Module;
+use kouosl\yemekhane\Module;
 use Yii;
 
 /**
- * This is the model class for table "samples".
+ * This is the model class for table "yemekhanes".
  *
  * @property string $imageFile
  *
@@ -35,17 +35,17 @@ class UploadImage extends \yii\base\Model
 
             $this->imageName = Yii::$app->security->generateRandomString(16) . '.' . $this->imageFile->extension;
 
-            $imagePath = sprintf("%s/samples/%s",Yii::getAlias ( '@data' ),$this->imageName);
+            $imagePath = sprintf("%s/yemekhanes/%s",Yii::getAlias ( '@data' ),$this->imageName);
 
             if (!$this->imageFile->saveAs($imagePath)) {
-                yii::$app->session->setFlash('flashMessage', ['type' => 'error', 'message' => Module::t('sample', 'File not uploaded.' )]);
+                yii::$app->session->setFlash('flashMessage', ['type' => 'error', 'message' => Module::t('yemekhane', 'File not uploaded.' )]);
             }
 
             return $this->imageName;
 
         } else {
 
-            yii::$app->session->setFlash('flashMessage', ['type' => 'error', 'message' => Module::t('sample', 'Invalid File Type.' )]);
+            yii::$app->session->setFlash('flashMessage', ['type' => 'error', 'message' => Module::t('yemekhane', 'Invalid File Type.' )]);
 
             return null;
 

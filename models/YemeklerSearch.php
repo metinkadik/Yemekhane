@@ -1,15 +1,16 @@
 <?php
 
-namespace kouosl\sample\models;
+namespace kouosl\yemekhane\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use app\models\Yemekler;
 
 /**
- * SampleSearch represents the model behind the search form about `app\modules\sample\models\Sample`.
+ * YemeklerSearch represents the model behind the search form about `app\models\Yemekler`.
  */
-class SamplesSearch extends Samples
+class YemeklerSearch extends Yemekler
 {
     /**
      * @inheritdoc
@@ -17,8 +18,8 @@ class SamplesSearch extends Samples
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['title', 'description'], 'safe'],
+            [['id', 'kalori'], 'integer'],
+            [['yemek_tip', 'yemek_adi'], 'safe'],
         ];
     }
 
@@ -40,7 +41,9 @@ class SamplesSearch extends Samples
      */
     public function search($params)
     {
-        $query = Samples::find();
+        $query = Yemekler::find();
+
+        // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -54,12 +57,14 @@ class SamplesSearch extends Samples
             return $dataProvider;
         }
 
+        // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'kalori' => $this->kalori,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'description', $this->description]);
+        $query->andFilterWhere(['like', 'yemek_tip', $this->yemek_tip])
+            ->andFilterWhere(['like', 'yemek_adi', $this->yemek_adi]);
 
         return $dataProvider;
     }
