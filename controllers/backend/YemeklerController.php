@@ -1,18 +1,19 @@
 <?php
 
-namespace kou\yemekhane\controllers;
+namespace kouosl\yemekhane\controllers\backend;
 
 use Yii;
-use app\models\Yemekler;
-use app\models\YemeklerSearch;
-use yii\web\Controller;
+use kouosl\yemekhane\models\Yemekler;
+use kouosl\yemekhane\models\YemeklerSearch;
+use kouosl\yemekhane\controllers\backend\DefaultController;
+
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * YemeklerController implements the CRUD actions for Yemekler model.
  */
-class YemeklerController extends Controller
+class YemeklerController extends DefaultController
 {
     /**
      * @inheritdoc
