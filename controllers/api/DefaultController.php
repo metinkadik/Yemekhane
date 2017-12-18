@@ -1,6 +1,6 @@
 <?php
 
-namespace kouosl\yemekhane\controllers\api;
+namespace kouosl\Yemekhane\controllers\api;
 
 
 class DefaultController extends \kouosl\base\controllers\api\BaseController

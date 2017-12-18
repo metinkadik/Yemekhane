@@ -1,6 +1,6 @@
 <?php
 
-namespace kouosl\yemekhane;
+namespace kouosl\Yemekhane;
 use Yii;
 use yii\filters\auth\CompositeAuth;
 use yii\filters\auth\HttpBasicAuth;
@@ -57,16 +57,16 @@ class Module extends \kouosl\base\Module
         Yii::$app->i18n->translations['site/*'] = [
             'class' => 'yii\i18n\PhpMessageSource',
             'sourceLanguage' => 'en-US',
-            'basePath' => '@kouosl/yemekhane/messages',
+            'basePath' => '@kouosl/Yemekhane/messages',
             'fileMap' => [
-                'yemekhane/yemekhane' => 'yemekhane.php',
+                'Yemekhane/Yemekhane' => 'Yemekhane.php',
             ],
         ];
     }
 
     public static function t($category, $message, $params = [], $language = null)
     {
-        return Yii::t('yemekhane/' . $category, $message, $params, $language);
+        return Yii::t('Yemekhane/' . $category, $message, $params, $language);
     }
 
     public static function initRules(){
@@ -75,7 +75,7 @@ class Module extends \kouosl\base\Module
             [
                 'class' => 'yii\rest\UrlRule',
                 'controller' => [
-                    'yemekhane/yemekhanes',
+                    'Yemekhane/Yemekhanes',
                 ],
                 'tokens' => [
                     '{id}' => '<id:\\w+>'
