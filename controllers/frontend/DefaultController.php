@@ -1,9 +1,9 @@
 <?php
 
-namespace kouosl\yemekhane\controllers\frontend;
+namespace kouosl\Yemekhane\controllers\frontend;
 
 
-class DefaultController extends \kouosl\base\controllers\backend\BaseController
+class DefaultController extends \kouosl\base\controllers\frontend\BaseController
 {
     public function actionIndex()
     {

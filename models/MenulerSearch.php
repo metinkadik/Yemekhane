@@ -5,12 +5,12 @@ namespace kouosl\Yemekhane\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use kouosl\Yemekhane\models\Yemekler;
+use kouosl\Yemekhane\models\Menuler;
 
 /**
- * YemeklerSearch represents the model behind the search form about `kouosl\Yemekhane\models\Yemekler`.
+ * MenulerSearch represents the model behind the search form about `kouosl\Yemekhane\models\Menuler`.
  */
-class YemeklerSearch extends Yemekler
+class MenulerSearch extends Menuler
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class YemeklerSearch extends Yemekler
     public function rules()
     {
         return [
-            [['id', 'kalori'], 'integer'],
-            [['yemek_tip', 'yemek_adi'], 'safe'],
+            [['id'], 'integer'],
+            [['Tarih'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class YemeklerSearch extends Yemekler
      */
     public function search($params)
     {
-        $query = Yemekler::find();
+        $query = Menuler::find();
 
         // add conditions that should always apply here
 
@@ -60,11 +60,8 @@ class YemeklerSearch extends Yemekler
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'kalori' => $this->kalori,
+            'Tarih' => $this->Tarih,
         ]);
-
-        $query->andFilterWhere(['like', 'yemek_tip', $this->yemek_tip])
-            ->andFilterWhere(['like', 'yemek_adi', $this->yemek_adi]);
 
         return $dataProvider;
     }

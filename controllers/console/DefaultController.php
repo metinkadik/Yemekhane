@@ -1,6 +1,6 @@
 <?php
 
-namespace kouosl\yemekhane\controllers\console;
+namespace kouosl\Yemekhane\controllers\console;
 
 
 /**
