@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model kouosl\Yemekhane\models\Iliski */
+/* @var $model kouosl\Yemekhane\models\Ekran */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="iliski-form">
+<div class="ekran-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'menu_id')->textInput() ?>
 
-    <?= $form->field($model, 'yemek _adi')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'yemek_adi')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'yemek_tip')->textInput(['maxlength' => true]) ?>
 

@@ -5,12 +5,12 @@ namespace kouosl\Yemekhane\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use kouosl\Yemekhane\models\Iliski;
+use kouosl\Yemekhane\models\Ekran;
 
 /**
- * IliskiSearch represents the model behind the search form about `kouosl\Yemekhane\models\Iliski`.
+ * EkranSearch represents the model behind the search form about `kouosl\Yemekhane\models\Ekran`.
  */
-class IliskiSearch extends Iliski
+class EkranSearch extends Ekran
 {
     /**
      * @inheritdoc
@@ -19,7 +19,7 @@ class IliskiSearch extends Iliski
     {
         return [
             [['id', 'yemek_id', 'menu_id', 'kalori'], 'integer'],
-            [['yemek _adi', 'yemek_tip', 'tarih'], 'safe'],
+            [['yemek_adi', 'yemek_tip', 'tarih'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class IliskiSearch extends Iliski
      */
     public function search($params)
     {
-        $query = Iliski::find();
+        $query = Ekran::find();
 
         // add conditions that should always apply here
 
@@ -66,7 +66,7 @@ class IliskiSearch extends Iliski
             'tarih' => $this->tarih,
         ]);
 
-        $query->andFilterWhere(['like', 'yemek _adi', $this->yemek _adi])
+        $query->andFilterWhere(['like', 'yemek_adi', $this->yemek_adi])
             ->andFilterWhere(['like', 'yemek_tip', $this->yemek_tip]);
 
         return $dataProvider;

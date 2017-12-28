@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\YemeklerSearch */
+/* @var $searchModel kouosl\Yemekhane\models\EkranSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Yemeklers';
+$this->title = 'Ekrans';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="yemekler-index">
+<div class="ekran-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Yemekler', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Ekran', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -25,9 +25,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'yemek_tip',
+            'yemek_id',
+            'menu_id',
             'yemek_adi',
-            'kalori',
+            'yemek_tip',
+            // 'kalori',
+            // 'tarih',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

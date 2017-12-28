@@ -3,16 +3,16 @@
 namespace kouosl\Yemekhane\controllers\frontend;
 
 use Yii;
-use kouosl\Yemekhane\models\Iliski;
-use kouosl\Yemekhane\models\IliskiSearch;
+use kouosl\Yemekhane\models\Ekran;
+use kouosl\Yemekhane\models\EkranSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * IliskisController implements the CRUD actions for Iliski model.
+ * EkransController implements the CRUD actions for Ekran model.
  */
-class IliskisController extends Controller
+class EkransController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class IliskisController extends Controller
     }
 
     /**
-     * Lists all Iliski models.
+     * Lists all Ekran models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new IliskiSearch();
+        $searchModel = new EkranSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class IliskisController extends Controller
     }
 
     /**
-     * Displays a single Iliski model.
+     * Displays a single Ekran model.
      * @param integer $id
      * @return mixed
      */
@@ -57,13 +57,13 @@ class IliskisController extends Controller
     }
 
     /**
-     * Creates a new Iliski model.
+     * Creates a new Ekran model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Iliski();
+        $model = new Ekran();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -75,7 +75,7 @@ class IliskisController extends Controller
     }
 
     /**
-     * Updates an existing Iliski model.
+     * Updates an existing Ekran model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -94,7 +94,7 @@ class IliskisController extends Controller
     }
 
     /**
-     * Deletes an existing Iliski model.
+     * Deletes an existing Ekran model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class IliskisController extends Controller
     }
 
     /**
-     * Finds the Iliski model based on its primary key value.
+     * Finds the Ekran model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Iliski the loaded model
+     * @return Ekran the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Iliski::findOne($id)) !== null) {
+        if (($model = Ekran::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
